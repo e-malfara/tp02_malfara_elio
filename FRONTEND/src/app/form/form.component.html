@@ -1,0 +1,91 @@
+
+    <form #form="ngForm" class="row" novalidate (ngSubmit)="onFormSoumission()">
+        <div class="col-md-4">
+            <label for="validationCivilite" class="form-label">Civilité</label>
+            <select #civilite="ngModel" class="form-select" id="validationCivilite" required [(ngModel)] = "utilisateur.civilite" name = "validationCivilite">
+                <option selected disabled value="0">Choisir...</option>
+                <option>Monsieur</option>
+                <option>Madame</option>
+                <option>Autre</option>
+            </select>
+            <!--<div *ngIf="civilite.errors && (civilite.dirty || civilite.touched)" class="text-danger">
+                <p *ngIf="civilite.errors.required">* Une civilité est requise.</p>
+            </div>-->
+        </div>
+        <div class="col-md-4">
+            <label for="validationNom" class="form-label">NOM</label>
+            <input #nom="ngModel" type="text" class="form-control" id="validationNom" placeholder="NOM" required [(ngModel)] = "utilisateur.nom" name = "validationNom" isNom>
+            <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="text-danger">
+                <p *ngIf="nom.errors.required">* Un nom est requis.</p>
+                <p *ngIf="nom.errors.isNom">* Veuillez choisir un seul nom valide tout en majuscule.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationPrenom" class="form-label">Prénom</label>
+            <input #prenom="ngModel" type="text" class="form-control" id="validationPrenom" placeholder="Prénom" required [(ngModel)] = "utilisateur.prenom" name = "validationPrenom" isPrenom>
+            <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="text-danger">
+                <p *ngIf="prenom.errors.required">* Un prénom est requis.</p>
+                <p *ngIf="prenom.errors.isPrenom">* Veuillez choisir un seul prénom valide commencant par une majuscule.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationEmail" class="form-label">E-mail</label>
+            <input #mail="ngModel" type="text" class="form-control" id="validationEmail" placeholder="adresse@mail.fr" required [(ngModel)] = "utilisateur.email" name = "validationEmail" isEmail>
+            <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="text-danger">
+                <p *ngIf="mail.errors.required">* Une adresse mail est requise.</p>
+                <p *ngIf="mail.errors.isMail">* Veuillez rentrer une adresse mail valide</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationTelephone" class="form-label">Téléphone</label>
+            <input #telephone="ngModel" type="text" class="form-control" id="validationTelephone" placeholder="01.23.45.67.89" required [(ngModel)] = "utilisateur.telephone" name = "validationTelephone" isTelephone>
+            <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="text-danger">
+                <p *ngIf="telephone.errors.required">* Un numéro de téléphone est requis.</p>
+                <p *ngIf="telephone.errors.isTelephone">* Veuillez rentrer un numéro de téléphone valide séparé par des "."</p>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label for="validationAdresse" class="form-label">Adresse</label>
+            <input #adresse="ngModel" type="text" class="form-control" id="validationAdresse" placeholder="1 rue de la gare" required [(ngModel)] = "utilisateur.adresse" name = "validationAdresse" isAdresse>
+            <div *ngIf="adresse.errors && (adresse.dirty || adresse.touched)" class="text-danger">
+                <p *ngIf="adresse.errors.required">* Une adresse est requise.</p>
+                <p *ngIf="adresse.errors.isAdresse">* Veuillez rentrer une adresse valide</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCodePostal" class="form-label">Code Postal</label>
+            <input #code="ngModel" type="text" class="form-control" id="validationCodePostal" placeholder="67125" required [(ngModel)] = "utilisateur.code" name = "validationCodePostal" isCode>
+            <div *ngIf="code.errors && (code.dirty || code.touched)" class="text-danger">
+                <p *ngIf="code.errors.required">* Une code postal est requis.</p>
+                <p *ngIf="code.errors.isCode">* Veuillez rentrer un code postal valide</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationVille" class="form-label">Ville</label>
+            <input #ville="ngModel" type="text" class="form-control" id="validationVille" placeholder = "Paris" required [(ngModel)] = "utilisateur.ville" name = "validationVille" isVille>
+            <div *ngIf="ville.errors && (ville.dirty || ville.touched)" class="text-danger">
+                <p *ngIf="ville.errors.required">* Une ville est requise.</p>
+                <p *ngIf="ville.errors.isCode">* Veuillez une ville valide en commencant par une majuscule</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="validationLogin" class="form-label">Login</label>
+            <input #login="ngModel" type="text" class="form-control" id="validationLogin" placeholder="login" required [(ngModel)] = "utilisateur.login" name = "validationLogin">
+            <div *ngIf="login.errors && (login.dirty || login.touched)" class="text-danger">
+                <p *ngIf="login.errors.required">* Un login est requis.</p>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <label for="validationMdp1" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="validationMdp1" required [(ngModel)] = "utilisateur.mdp" name = "validationMdp1">
+        </div>
+        <div class="col-md-6">
+            <label for="validationMdp2" class="form-label">Confirmation du mot de passe</label>
+            <input type="password" class="form-control" id="validationMdp2" required [(ngModel)] = "mdp2" name = "validationMdp2">
+        </div>
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary" type="submit">Soumettre</button>
+        </div>
+    </form>
+
