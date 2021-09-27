@@ -9,6 +9,7 @@ export class Utilisateur {
     ville:string;
     login:string;
     mdp:string;
+    mdp2:string;
 
     constructor() {
         this.civilite = "";
@@ -21,5 +22,6 @@ export class Utilisateur {
         this.ville = "";
         this.login = "";
         this.mdp = "";
+        this.mdp2 = "";
     }
 }

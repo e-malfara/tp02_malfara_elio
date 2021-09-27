@@ -98,7 +98,7 @@ export class CodeValidatorDirective implements Validator {
 }
 
 @Directive({
-  selector: '[isVile]',
+  selector: '[isVille]',
   providers: [{ provide: NG_VALIDATORS, useExisting: VilleValidatorDirective, multi: true }]
 })
 export class VilleValidatorDirective implements Validator {
